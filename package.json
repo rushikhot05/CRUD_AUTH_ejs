@@ -1,7 +1,7 @@
 {
   "name": "listing",
   "version": "1.0.0",
-  "description": "Lists Item details from MongoDb Database",
+  "description": " ",
   "main": "app.js",
   "scripts": {
     "start": "env-cmd -f ./.env nodemon src/app.js"
@@ -12,7 +12,7 @@
     "mongoose",
     "demo"
   ],
-  "author": "Snigdho Pritam Neog",
+  "author": "Sherlock",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.4",
