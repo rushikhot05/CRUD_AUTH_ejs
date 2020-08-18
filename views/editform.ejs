@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/styles/editform.css"/>
+</head>
+<body>
+    <h1>Edit Student</h1>
+    <form action="/students/<%= student.id %>" method="POST" class="form">
+        <div class="form-group">
+          <label>First Name:</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" name="FirstName" value="<%= student.FirstName %>">
+        </div>
+        <div class="form-group">
+          <label>Last Name:</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" name="LastName" value="<%= student.LastName %>">
+        </div>
+        <div class="form-group">
+            <label>Age:</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" name="Age" value="<%= student.Age %>">
+        </div>
+        <div class="form-group">
+            <label>College:</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="College" value="<%= student.Collage %>">
+        </div>
+        <div class="form-group">
+            <label>Grades:</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" name="Batch" value="<%= student.Grades %>">
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+    </form>
+</body>
+</html>

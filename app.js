@@ -12,35 +12,41 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/Students', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-app.use(bodyParser.json());
+app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({extended: true}))
+
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
-    res.json({ "tutorial": "Build REST API with node.js" });
+    res.render('index.ejs')
 });
 
 // public route
 app.use('/users', users);
 
 // private route
-app.use('/students', validateUser, students);
+// app.use('/students', validateUser, students);
+app.use('/students', students);
+
 
 app.get('/favicon.ico', function (req, res) {
     res.sendStatus(204);
 });
 
 // user validation
-function validateUser(req, res, next) {
-    try {
-        const token = req.header('Authorization').replace('Bearer ', '')
-        const data = jwt.verify(token, process.env.JWT_KEY)
-        if(!data) {
-            throw new Error()
-        }
-        next()
-    } catch (error) {
-        res.status(401).send({ error: 'Not authorized to access this resource' })
-    }
-}
+// function validateUser(req, res, next) {
+//     try {
+//         const token = req.header('Authorization').replace('Bearer ', '')
+//         const data = jwt.verify(token, process.env.JWT_KEY)
+//         if(!data) {
+//             throw new Error()
+//         }
+//         next()
+//     } catch (error) {
+//         res.status(401).send({ error: 'Not authorized to access this resource' })
+//     }
+// }
 
 // express doesn't consider not found 404 as an error so we need to handle 404 explicitly
 // handle 404 error

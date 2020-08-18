@@ -17,7 +17,7 @@ var studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Batch: {
+    Grades: {
         type: String,
         required: true
     }
